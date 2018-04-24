@@ -28,6 +28,8 @@ class DerivativeRules(unittest.TestCase):
     def test_derivative_trace(self):
         second_terms = [(3, 2), (-11, 0)]
         x_values = list(range(-5, 5))
-        second_terms_deriv_trace = {'x': [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
+        second_terms_deriv_trace = {'mode': 'line',
+        'name': 'data', 'text': [],
+        'x': [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
         'y': [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24]}
         self.assertEqual(derivative_function_trace(second_terms, x_values), second_terms_deriv_trace)

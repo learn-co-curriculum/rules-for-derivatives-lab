@@ -11,7 +11,7 @@ As you know we can represent polynomial functions as a list of tuples.
 
 * Each term is represented as a single tuple, for example, $2x^3$ is expressed as `(2, 3)`.
 * And an entire function is expressed as a list of tuples, like $f(x)=2x^3+7x$ is expressed as `[(2, 3), (7, 1)]`.
-* Between elements in our list, we imagine there is a plus sign. To subtract elements we simply place a negative sign before the first element in the tuple. For example, $f(x)= x^2 - 4x$ is represented as `[(1, 2), (-4, 1)]`. 
+* Between elements in our list, we imagine there is a plus sign. To subtract elements we simply place a negative sign before the first element in the tuple. For example, $f(x)= x^2 - 4x$ is represented as `[(1, 2), (-4, 1)]`.
 
 > **Remember:** tuples are just like lists except that they are immutable.  We can access elements of a tuple just as we do a list.
 
@@ -109,7 +109,7 @@ find_derivative(three_x_squared_minus_eleven) # [(6, 1)]
 derivative_at(three_x_squared_minus_eleven, 2) # 12
 ```
 
-### Creating visualisations with our functions
+### Creating visualizations with our functions
 
 Now that we have done the work of calculating the derivatives, we can begin to show the derivatives of functions with Plotly. We have plotted derivatives previously, but we have need to consider $\Delta x$ to do so.  Notice that with our rules, we no longer need to include $\Delta x$ as a parameter for our derivative calculating functions.  Similarly, we will not need to include $\Delta x$ as a parameter for our line tracing functions below.
 
@@ -149,12 +149,12 @@ plot([three_x_squared_minus_eleven_trace, tangent_at_five_trace])
 
 
 ```python
-tangent_at_five_trace 
+tangent_at_five_trace
 ```
 
 #### Graphing the derivative across a range of values
 
-We can also write a function that given a list of terms can plot the derivative across multiple values. After all, the derivative is just a function. For example, when $f(x) = 3x^2 - 11$, the derivative is $f'(x) = 6x$. And we know that we can plot multiterm functions with our `function_values_trace`.
+We can also write a function that given a list of terms can plot the derivative across multiple values. After all, the derivative is just a function. For example, when $f(x) = 3x^2 - 11$, the derivative is $f'(x) = 6x$. And we know that we can plot multi-term functions with our `function_values_trace`.
 
 
 ```python

@@ -56,11 +56,11 @@ def delta_traces(list_of_terms, x_value, line_length = 4, delta_x = .01):
 
 def function_values_trace(list_of_terms, x_values):
     function_values = list(map(lambda x: output_at(list_of_terms, x),x_values))
-    return trace_values(x_values, function_values, mode = 'line')
+    return trace_values(x_values, function_values, mode = 'lines')
 
 def derivative_values_trace(list_of_terms, x_values, delta_x):
     derivative_values = list(map(lambda x: derivative_of(list_of_terms, x, delta_x), x_values))
-    return trace_values(x_values, derivative_values, mode = 'line')
+    return trace_values(x_values, derivative_values, mode = 'lines')
 
 def function_and_derivative_trace(list_of_terms, x_values, delta_x):
     traced_function = function_values_trace(list_of_terms, x_values)

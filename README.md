@@ -11,7 +11,7 @@ As you know we can represent polynomial functions as a list of tuples.
 
 * Each term is represented as a single tuple, for example, $2x^3$ is expressed as `(2, 3)`.
 * And an entire function is expressed as a list of tuples, like $f(x)=2x^3+7x$ is expressed as `[(2, 3), (7, 1)]`.
-* Between elements in our list, we imagine there is a plus sign. To subtract elements we simply place a negative sign before the first element in the tuple. For example, $f(x)= x^2 - 4x$ is represented as `[(1, 2), (-4, 1)]`.
+* Between elements in our list, we imagine there is a plus sign. To subtract elements we simply place a negative sign before the first element in the tuple. For example, $f(x)= x^2 - 4x$ is represented as `[(1, 2), (-4, 1)]`. 
 
 > **Remember:** tuples are just like lists except that they are immutable.  We can access elements of a tuple just as we do a list.
 
@@ -104,6 +104,14 @@ def derivative_at(terms, x):
 ```
 
 
+<script>requirejs.config({paths: { 'plotly': ['https://cdn.plot.ly/plotly-latest.min']},});if(!window.Plotly) {{require(['plotly'],function(plotly) {window.Plotly=plotly;});}}</script>
+
+
+
+<script>requirejs.config({paths: { 'plotly': ['https://cdn.plot.ly/plotly-latest.min']},});if(!window.Plotly) {{require(['plotly'],function(plotly) {window.Plotly=plotly;});}}</script>
+
+
+
 ```python
 find_derivative(three_x_squared_minus_eleven) # [(6, 1)]
 derivative_at(three_x_squared_minus_eleven, 2) # 12
@@ -148,8 +156,36 @@ plot([three_x_squared_minus_eleven_trace, tangent_at_five_trace])
 ```
 
 
+<script>requirejs.config({paths: { 'plotly': ['https://cdn.plot.ly/plotly-latest.min']},});if(!window.Plotly) {{require(['plotly'],function(plotly) {window.Plotly=plotly;});}}</script>
+
+
+
+    ---------------------------------------------------------------------------
+
+    TypeError                                 Traceback (most recent call last)
+
+    <ipython-input-11-cb6a7e666b01> in <module>()
+          7 
+          8 
+    ----> 9 tangent_at_five_trace = tangent_line(three_x_squared_minus_eleven, 5, line_length = 4)
+         10 three_x_squared_minus_eleven_trace = function_values_trace(three_x_squared_minus_eleven, list(range(-10, 10)))
+         11 plot([three_x_squared_minus_eleven_trace, tangent_at_five_trace])
+
+
+    <ipython-input-10-3b1920a25d71> in tangent_line(function_terms, x_value, line_length)
+          7     ## here, we are using your function
+          8     deriv = derivative_at(function_terms, x_value)
+    ----> 9     y_minus = y - deriv * line_length
+         10     y_plus = y + deriv * line_length
+         11     return {'x': [x_minus, x_value, x_plus], 'y': [y_minus, y, y_plus]}
+
+
+    TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+
+
+
 ```python
-tangent_at_five_trace
+tangent_at_five_trace 
 ```
 
 #### Graphing the derivative across a range of values
@@ -187,6 +223,18 @@ three_x_squared_minus_eleven_derivative_trace = derivative_function_trace(three_
 ```python
 three_x_squared_minus_eleven_derivative_trace
 ```
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-12-a14b3e4a33cd> in <module>()
+    ----> 1 three_x_squared_minus_eleven_derivative_trace
+    
+
+    NameError: name 'three_x_squared_minus_eleven_derivative_trace' is not defined
+
 
 So now that we can plot a nonlinear function with our `function_values_trace` and plot that function's derivative with the `derivative_function_trace` trace, we can now plot these traces side by side:
 

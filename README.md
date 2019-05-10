@@ -9,9 +9,9 @@ In this lab, we will practice implementing the rules for derivatives with code. 
 
 As you know we can represent polynomial functions as a list of tuples.  
 
-* Each term is represented as a single tuple, for example, $2x^3$ is expressed as `(2, 3)`.
-* And an entire function is expressed as a list of tuples, like $f(x)=2x^3+7x$ is expressed as `[(2, 3), (7, 1)]`.
-* Between elements in our list, we imagine there is a plus sign. To subtract elements we simply place a negative sign before the first element in the tuple. For example, $f(x)= x^2 - 4x$ is represented as `[(1, 2), (-4, 1)]`. 
+- Each term is represented as a single tuple, for example, $2x^3$ is expressed as `(2, 3)`.
+- And an entire function is expressed as a list of tuples, like $f(x)=2x^3+7x$ is expressed as `[(2, 3), (7, 1)]`.
+- Between elements in our list, we imagine there is a plus sign. To subtract elements we simply place a negative sign before the first element in the tuple. For example, $f(x)= x^2 - 4x$ is represented as `[(1, 2), (-4, 1)]`. 
 
 > **Remember:** tuples are just like lists except that they are immutable.  We can access elements of a tuple just as we do a list.
 

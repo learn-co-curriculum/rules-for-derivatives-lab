@@ -19,7 +19,7 @@ def delta_f_trace(list_of_terms, x_value, delta_x):
     trace = trace_values(x_values=[x_value + delta_x, x_value + delta_x],
                         y_values=[initial_f, initial_f + delta_y],
                         text=[str(initial_f), str(initial_f + delta_y)], mode = 'lines+text', name = 'y2 - y1 = ' + str(initial_f + delta_y) + ' - '  + str(initial_f) + ' = ' + str(delta_y),
-                        options = {'textposition': 'right'})
+                        options = {'textposition': 'top right'})
     return trace
 
 def delta_x_trace(list_of_terms, x_value, delta):
@@ -28,7 +28,7 @@ def delta_x_trace(list_of_terms, x_value, delta):
                          text=[str(x_value), str(x_value + delta)],
                          y_values=[initial_f, initial_f], mode = 'lines+text',
                          name = 'x2 - x1 = ' + str(initial_f + delta) + ' - '  + str(initial_f) + ' = ' + str(delta),
-                         options = {'textposition': 'bottom'})
+                         options = {'textposition': 'bottom left'})
     return trace
 
 def derivative_of(list_of_terms, x_value, delta_x):
@@ -45,7 +45,7 @@ def derivative_trace(list_of_terms, x_value, line_length = 4, delta = .01):
     trace = {'x': [x_minus, x_value, x_plus],
     'y': [y_minus, y, y_plus],
     'text': ['', "f' = " +  str(derivative_at), ''],
-    'mode': 'text+lines', 'textposition': 'bottom'}
+    'mode': 'text+lines', 'textposition': 'bottom left'}
     return trace
 
 def delta_traces(list_of_terms, x_value, line_length = 4, delta_x = .01):

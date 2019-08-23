@@ -139,6 +139,14 @@ def derivative_at(terms, x):
 ```
 
 
+<script>requirejs.config({paths: { 'plotly': ['https://cdn.plot.ly/plotly-latest.min']},});if(!window.Plotly) {{require(['plotly'],function(plotly) {window.Plotly=plotly;});}}</script>
+
+
+
+<script>requirejs.config({paths: { 'plotly': ['https://cdn.plot.ly/plotly-latest.min']},});if(!window.Plotly) {{require(['plotly'],function(plotly) {window.Plotly=plotly;});}}</script>
+
+
+
 ```python
 find_derivative(three_x_squared_minus_eleven) # [(6, 1)]
 derivative_at(three_x_squared_minus_eleven, 2) # 12
@@ -151,7 +159,7 @@ derivative_at(three_x_squared_minus_eleven, 2) # 12
 
 
 
-### Creating visualisations with our functions
+### Creating visualizations with our functions
 
 Now that we have done the work of calculating the derivatives, we can begin to show the derivatives of functions with Plotly. We have plotted derivatives previously, but we have need to consider $\Delta x$ to do so.  Notice that with our rules, we no longer need to include $\Delta x$ as a parameter for our derivative calculating functions.  Similarly, we will not need to include $\Delta x$ as a parameter for our line tracing functions below.
 
@@ -194,7 +202,7 @@ plot([three_x_squared_minus_eleven_trace, tangent_at_five_trace])
 
 
 
-<div id="53205218-56ba-4944-8187-ce7f5017ab92" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("53205218-56ba-4944-8187-ce7f5017ab92", [{"x": [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "y": [289, 232, 181, 136, 97, 64, 37, 16, 1, -8, -11, -8, 1, 16, 37, 64, 97, 136, 181, 232], "mode": "line", "name": "data", "text": []}, {"x": [1, 5, 9], "y": [-56, 64, 184]}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
+<div id="c5ef4309-aa38-4c35-9dc9-885ac342c227" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("c5ef4309-aa38-4c35-9dc9-885ac342c227", [{"mode": "lines", "name": "data", "text": [], "x": [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "y": [289, 232, 181, 136, 97, 64, 37, 16, 1, -8, -11, -8, 1, 16, 37, 64, 97, 136, 181, 232], "type": "scatter", "uid": "67f42d46-c5d9-11e9-81b8-3af9d3ad3e0b"}, {"x": [1, 5, 9], "y": [-56, 64, 184], "type": "scatter", "uid": "67f42e86-c5d9-11e9-8130-3af9d3ad3e0b"}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
 
 
 
@@ -211,7 +219,7 @@ tangent_at_five_trace
 
 #### Graphing the derivative across a range of values
 
-We can also write a function that given a list of terms can plot the derivative across multiple values. After all, the derivative is just a function. For example, when $f(x) = 3x^2 - 11$, the derivative is $f'(x) = 6x$. And we know that we can plot multiterm functions with our `function_values_trace`.
+We can also write a function that given a list of terms can plot the derivative across multiple values. After all, the derivative is just a function. For example, when $f(x) = 3x^2 - 11$, the derivative is $f'(x) = 6x$. And we know that we can plot multi-term functions with our `function_values_trace`.
 
 
 ```python
@@ -223,11 +231,11 @@ function_values_trace(three_x_squared_minus_eleven, list(range(-5, 5)))
 
 
 
-    {'mode': 'line',
+    {'x': [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
+     'y': [64, 37, 16, 1, -8, -11, -8, 1, 16, 37],
+     'mode': 'lines',
      'name': 'data',
-     'text': [],
-     'x': [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
-     'y': [64, 37, 16, 1, -8, -11, -8, 1, 16, 37]}
+     'text': []}
 
 
 
@@ -260,11 +268,11 @@ three_x_squared_minus_eleven_derivative_trace
 
 
 
-    {'mode': 'line',
+    {'x': [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
+     'y': [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24],
+     'mode': 'lines',
      'name': 'data',
-     'text': [],
-     'x': [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
-     'y': [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24]}
+     'text': []}
 
 
 
@@ -302,7 +310,14 @@ if side_by_side_three_x_squared_minus_eleven:
 
 
 
-<div id="3560bbd8-deab-4e42-8e30-ea790f126192" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("3560bbd8-deab-4e42-8e30-ea790f126192", [{"type": "scatter", "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [64, 37, 16, 1, -8, -11, -8, 1, 16, 37], "mode": "line", "name": "data", "text": [], "xaxis": "x1", "yaxis": "y1"}, {"type": "scatter", "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24], "mode": "line", "name": "data", "text": [], "xaxis": "x2", "yaxis": "y2"}], {"xaxis1": {"domain": [0.0, 0.45], "anchor": "y1"}, "yaxis1": {"domain": [0.0, 1.0], "anchor": "x1"}, "xaxis2": {"domain": [0.55, 1.0], "anchor": "y2"}, "yaxis2": {"domain": [0.0, 1.0], "anchor": "x2"}}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
+<div id="a5890e91-69ef-4152-9b3f-f5c8e4b3a878" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";
+        Plotly.plot(
+            'a5890e91-69ef-4152-9b3f-f5c8e4b3a878',
+            [{"mode": "lines", "name": "data", "text": [], "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [64, 37, 16, 1, -8, -11, -8, 1, 16, 37], "type": "scatter", "uid": "b1729d9a-c5d9-11e9-aaff-3af9d3ad3e0b", "xaxis": "x", "yaxis": "y"}, {"mode": "lines", "name": "data", "text": [], "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24], "type": "scatter", "uid": "b173092e-c5d9-11e9-a62c-3af9d3ad3e0b", "xaxis": "x2", "yaxis": "y2"}],
+            {"xaxis": {"anchor": "y", "domain": [0.0, 0.45]}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0]}, "xaxis2": {"anchor": "y2", "domain": [0.55, 1.0]}, "yaxis2": {"anchor": "x2", "domain": [0.0, 1.0]}},
+            {"showLink": true, "linkText": "Export to plot.ly"}
+        ).then(function () {return Plotly.addFrames('a5890e91-69ef-4152-9b3f-f5c8e4b3a878',{});}).then(function(){Plotly.animate('a5890e91-69ef-4152-9b3f-f5c8e4b3a878');})
+        });</script>
 
 
 Note that when the $x$ values of $f(x)$ are positive, the $f(x)$ begins increasing, therefore $f'(x)$ is greater than zero, which the graph on the right displays.  And the more positive the values $x$ for $f(x)$, the faster the rate of increase.  When our function $f(x)$ is negative, the function is decreasing, that is for every change in $x$, the change in $f(x)$ is negative, and therefore $f'(x)$ is negative.

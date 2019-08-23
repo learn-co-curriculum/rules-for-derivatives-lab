@@ -41,14 +41,42 @@ one_x_cubed = (1, 3)
 
 
 ```python
+# __SOLUTION__ 
+one_x_cubed = (1, 3)
+```
+
+
+```python
 def find_term_derivative(term):
     pass
 ```
 
 
 ```python
+# __SOLUTION__ 
+def find_term_derivative(term):
+    constant = term[0]*term[1]
+    exponent = term[1] - 1
+    return (constant, exponent)
+```
+
+
+```python
 find_term_derivative(one_x_cubed) # (3, 2)
 ```
+
+
+```python
+# __SOLUTION__ 
+find_term_derivative(one_x_cubed) # (3, 2)
+```
+
+
+
+
+    (3, 2)
+
+
 
 Let's try the function with $f(x) = 2x^2$.
 
@@ -57,6 +85,20 @@ Let's try the function with $f(x) = 2x^2$.
 two_x_squared = (2, 2)
 find_term_derivative(two_x_squared) # (4, 1)
 ```
+
+
+```python
+# __SOLUTION__ 
+two_x_squared = (2, 2)
+find_term_derivative(two_x_squared) # (4, 1)
+```
+
+
+
+
+    (4, 1)
+
+
 
 Ok, now that we have a Python function called `find_derivative` that can take a derivative of a term, write a function that take as an argument our multi-termed function, and return the derivative of the multi-term function represented as a list of tuples.  
 
@@ -74,9 +116,31 @@ def find_derivative(function_terms):
 
 
 ```python
+# __SOLUTION__ 
+def find_derivative(function_terms):
+    derivative_terms = list(map(lambda function_term: find_term_derivative(function_term),function_terms))
+    return list(filter(lambda derivative_term: derivative_term[0] != 0, derivative_terms))
+```
+
+
+```python
 four_x_cubed_minus_three_x = [(4, 3), (-3, 1)]
 find_derivative(four_x_cubed_minus_three_x)  # [(12, 2), (-3, 0)]
 ```
+
+
+```python
+# __SOLUTION__ 
+four_x_cubed_minus_three_x = [(4, 3), (-3, 1)]
+find_derivative(four_x_cubed_minus_three_x)  # [(12, 2), (-3, 0)]
+```
+
+
+
+
+    [(12, 2), (-3, 0)]
+
+
 
 One gotcha to note is when one of our terms is a constant, when taking the derivative, the constant is removed.  For example, when $f(x) = 3x^2 - 11$, the derivative $f'(x) = 6x$.  The reason why is because 11 is the same as $11*x^0$ which is also $11*1$, as anything raised to the zero power equals 1. And so the derivative of the term $11x^0$ equals $0*11*x^{-1} = 0$.  Our `find_derivative` function should return, using `filter`, only the terms whose derivatives are not multiplied by zero.  
 
@@ -85,6 +149,20 @@ One gotcha to note is when one of our terms is a constant, when taking the deriv
 three_x_squared_minus_eleven = [(3, 2), (-11, 0)]
 find_derivative(three_x_squared_minus_eleven) # [(6, 1)]
 ```
+
+
+```python
+# __SOLUTION__ 
+three_x_squared_minus_eleven = [(3, 2), (-11, 0)]
+find_derivative(three_x_squared_minus_eleven) # [(6, 1)]
+```
+
+
+
+
+    [(6, 1)]
+
+
 
 Our next function is called, `derivative_at` which, when provided a list of terms and a value $x$ at which to evaluate the derivative, returns the value of derivative at that point.
 
@@ -113,9 +191,43 @@ def derivative_at(terms, x):
 
 
 ```python
+# __SOLUTION__ 
+# Feel free to use the output_at function in solving this
+
+# calculus.py
+# def output_at(list_of_terms, x_value):
+#     outputs = list(map(lambda term: term_output(term, x_value), list_of_terms))
+#     return sum(outputs)
+
+from calculus import output_at
+
+def derivative_at(terms, x):
+    derivative_fn = find_derivative(terms)
+    total = 0
+    for term in derivative_fn:
+        total += term[0]*x**term[1]
+    return total
+```
+
+
+```python
 find_derivative(three_x_squared_minus_eleven) # [(6, 1)]
 derivative_at(three_x_squared_minus_eleven, 2) # 12
 ```
+
+
+```python
+# __SOLUTION__ 
+find_derivative(three_x_squared_minus_eleven) # [(6, 1)]
+derivative_at(three_x_squared_minus_eleven, 2) # 12
+```
+
+
+
+
+    12
+
+
 
 ### Creating visualizations with our functions
 
@@ -127,6 +239,22 @@ First, let's take our `derivative_at` function, and use that in the `tangent_lin
 
 
 ```python
+from calculus import output_at
+
+def tangent_line(function_terms, x_value, line_length = 4):
+    x_minus = x_value - line_length
+    x_plus = x_value + line_length
+    y = output_at(function_terms, x_value)
+    ## here, we are using your function
+    deriv = derivative_at(function_terms, x_value)
+    y_minus = y - deriv * line_length
+    y_plus = y + deriv * line_length
+    return {'x': [x_minus, x_value, x_plus], 'y': [y_minus, y, y_plus]}
+```
+
+
+```python
+# __SOLUTION__ 
 from calculus import output_at
 
 def tangent_line(function_terms, x_value, line_length = 4):
@@ -185,8 +313,45 @@ plot([three_x_squared_minus_eleven_trace, tangent_at_five_trace])
 
 
 ```python
+# __SOLUTION__ 
+from graph import plot
+from plotly.offline import iplot, init_notebook_mode
+
+from calculus import derivative_trace, function_values_trace
+
+init_notebook_mode(connected=True)
+
+
+tangent_at_five_trace = tangent_line(three_x_squared_minus_eleven, 5, line_length = 4)
+three_x_squared_minus_eleven_trace = function_values_trace(three_x_squared_minus_eleven, list(range(-10, 10)))
+plot([three_x_squared_minus_eleven_trace, tangent_at_five_trace])
+```
+
+
+<script>requirejs.config({paths: { 'plotly': ['https://cdn.plot.ly/plotly-latest.min']},});if(!window.Plotly) {{require(['plotly'],function(plotly) {window.Plotly=plotly;});}}</script>
+
+
+
+<div id="53205218-56ba-4944-8187-ce7f5017ab92" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("53205218-56ba-4944-8187-ce7f5017ab92", [{"x": [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "y": [289, 232, 181, 136, 97, 64, 37, 16, 1, -8, -11, -8, 1, 16, 37, 64, 97, 136, 181, 232], "mode": "line", "name": "data", "text": []}, {"x": [1, 5, 9], "y": [-56, 64, 184]}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
+
+
+
+```python
 tangent_at_five_trace 
 ```
+
+
+```python
+# __SOLUTION__ 
+tangent_at_five_trace 
+```
+
+
+
+
+    {'x': [1, 5, 9], 'y': [-56, 64, 184]}
+
+
 
 #### Graphing the derivative across a range of values
 
@@ -198,6 +363,25 @@ from calculus import function_values_trace
 three_x_squared_minus_eleven = [(3, 2), (-11, 0)]
 function_values_trace(three_x_squared_minus_eleven, list(range(-5, 5)))
 ```
+
+
+```python
+# __SOLUTION__ 
+from calculus import function_values_trace
+three_x_squared_minus_eleven = [(3, 2), (-11, 0)]
+function_values_trace(three_x_squared_minus_eleven, list(range(-5, 5)))
+```
+
+
+
+
+    {'mode': 'line',
+     'name': 'data',
+     'text': [],
+     'x': [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
+     'y': [64, 37, 16, 1, -8, -11, -8, 1, 16, 37]}
+
+
 
 This is what function_values_trace looks like:
 
@@ -216,6 +400,20 @@ def derivative_function_trace(terms, x_values):
 
 
 ```python
+# __SOLUTION__ 
+def derivative_function_trace(terms, x_values):
+    derivative_terms = find_derivative(terms)
+    return function_values_trace(derivative_terms, x_values)
+```
+
+
+```python
+three_x_squared_minus_eleven_derivative_trace = derivative_function_trace(three_x_squared_minus_eleven, list(range(-5, 5)))
+```
+
+
+```python
+# __SOLUTION__ 
 three_x_squared_minus_eleven_derivative_trace = derivative_function_trace(three_x_squared_minus_eleven, list(range(-5, 5)))
 ```
 
@@ -236,10 +434,44 @@ three_x_squared_minus_eleven_derivative_trace
     NameError: name 'three_x_squared_minus_eleven_derivative_trace' is not defined
 
 
+
+```python
+# __SOLUTION__ 
+three_x_squared_minus_eleven_derivative_trace
+```
+
+
+
+
+    {'mode': 'line',
+     'name': 'data',
+     'text': [],
+     'x': [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
+     'y': [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24]}
+
+
+
 So now that we can plot a nonlinear function with our `function_values_trace` and plot that function's derivative with the `derivative_function_trace` trace, we can now plot these traces side by side:
 
 
 ```python
+from plotly import tools
+import plotly
+import plotly.plotly as py
+
+from graph import make_subplots
+
+def side_by_side_derivative_rules(list_of_terms, x_values):
+    function_trace = function_values_trace(list_of_terms, x_values)
+    derivative_trace = derivative_function_trace(list_of_terms, x_values)
+    if derivative_trace and function_trace:
+        return make_subplots([function_trace], [derivative_trace])
+
+```
+
+
+```python
+# __SOLUTION__ 
 from plotly import tools
 import plotly
 import plotly.plotly as py
@@ -263,5 +495,23 @@ side_by_side_three_x_squared_minus_eleven = side_by_side_derivative_rules(three_
 if side_by_side_three_x_squared_minus_eleven:
     plot_figure(side_by_side_three_x_squared_minus_eleven)
 ```
+
+
+```python
+# __SOLUTION__ 
+from graph import plot_figure
+side_by_side_three_x_squared_minus_eleven = side_by_side_derivative_rules(three_x_squared_minus_eleven, list(range(-5, 5)))
+if side_by_side_three_x_squared_minus_eleven:
+    plot_figure(side_by_side_three_x_squared_minus_eleven)
+```
+
+    This is the format of your plot grid:
+    [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]
+    
+
+
+
+<div id="3560bbd8-deab-4e42-8e30-ea790f126192" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("3560bbd8-deab-4e42-8e30-ea790f126192", [{"type": "scatter", "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [64, 37, 16, 1, -8, -11, -8, 1, 16, 37], "mode": "line", "name": "data", "text": [], "xaxis": "x1", "yaxis": "y1"}, {"type": "scatter", "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24], "mode": "line", "name": "data", "text": [], "xaxis": "x2", "yaxis": "y2"}], {"xaxis1": {"domain": [0.0, 0.45], "anchor": "y1"}, "yaxis1": {"domain": [0.0, 1.0], "anchor": "x1"}, "xaxis2": {"domain": [0.55, 1.0], "anchor": "y2"}, "yaxis2": {"domain": [0.0, 1.0], "anchor": "x2"}}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
+
 
 Note that when the $x$ values of $f(x)$ are positive, the $f(x)$ begins increasing, therefore $f'(x)$ is greater than zero, which the graph on the right displays.  And the more positive the values $x$ for $f(x)$, the faster the rate of increase.  When our function $f(x)$ is negative, the function is decreasing, that is for every change in $x$, the change in $f(x)$ is negative, and therefore $f'(x)$ is negative.

@@ -304,7 +304,7 @@ plot([three_x_squared_minus_eleven_trace, tangent_at_five_trace])
 
 
 
-<div id="c5ef4309-aa38-4c35-9dc9-885ac342c227" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("c5ef4309-aa38-4c35-9dc9-885ac342c227", [{"mode": "lines", "name": "data", "text": [], "x": [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "y": [289, 232, 181, 136, 97, 64, 37, 16, 1, -8, -11, -8, 1, 16, 37, 64, 97, 136, 181, 232], "type": "scatter", "uid": "67f42d46-c5d9-11e9-81b8-3af9d3ad3e0b"}, {"x": [1, 5, 9], "y": [-56, 64, 184], "type": "scatter", "uid": "67f42e86-c5d9-11e9-8130-3af9d3ad3e0b"}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
+<div id="c307464e-19f3-4643-84ef-86a0287af6b1" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("c307464e-19f3-4643-84ef-86a0287af6b1", [{"mode": "lines", "name": "data", "text": [], "x": [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "y": [289, 232, 181, 136, 97, 64, 37, 16, 1, -8, -11, -8, 1, 16, 37, 64, 97, 136, 181, 232], "type": "scatter", "uid": "a61ed426-cf44-11e9-95a7-3af9d3ad3e0b"}, {"x": [1, 5, 9], "y": [-56, 64, 184], "type": "scatter", "uid": "a61ed552-cf44-11e9-b099-3af9d3ad3e0b"}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
 
 
 
@@ -471,13 +471,13 @@ if side_by_side_three_x_squared_minus_eleven:
 
 
 
-<div id="a5890e91-69ef-4152-9b3f-f5c8e4b3a878" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";
+<div id="ffd408b2-0374-42e8-bd3b-229dbab0706d" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";
         Plotly.plot(
-            'a5890e91-69ef-4152-9b3f-f5c8e4b3a878',
-            [{"mode": "lines", "name": "data", "text": [], "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [64, 37, 16, 1, -8, -11, -8, 1, 16, 37], "type": "scatter", "uid": "b1729d9a-c5d9-11e9-aaff-3af9d3ad3e0b", "xaxis": "x", "yaxis": "y"}, {"mode": "lines", "name": "data", "text": [], "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24], "type": "scatter", "uid": "b173092e-c5d9-11e9-a62c-3af9d3ad3e0b", "xaxis": "x2", "yaxis": "y2"}],
+            'ffd408b2-0374-42e8-bd3b-229dbab0706d',
+            [{"mode": "lines", "name": "data", "text": [], "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [64, 37, 16, 1, -8, -11, -8, 1, 16, 37], "type": "scatter", "uid": "b0ab9a34-cf44-11e9-940d-3af9d3ad3e0b", "xaxis": "x", "yaxis": "y"}, {"mode": "lines", "name": "data", "text": [], "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4], "y": [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24], "type": "scatter", "uid": "b0ac3174-cf44-11e9-8c86-3af9d3ad3e0b", "xaxis": "x2", "yaxis": "y2"}],
             {"xaxis": {"anchor": "y", "domain": [0.0, 0.45]}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0]}, "xaxis2": {"anchor": "y2", "domain": [0.55, 1.0]}, "yaxis2": {"anchor": "x2", "domain": [0.0, 1.0]}},
             {"showLink": true, "linkText": "Export to plot.ly"}
-        ).then(function () {return Plotly.addFrames('a5890e91-69ef-4152-9b3f-f5c8e4b3a878',{});}).then(function(){Plotly.animate('a5890e91-69ef-4152-9b3f-f5c8e4b3a878');})
+        ).then(function () {return Plotly.addFrames('ffd408b2-0374-42e8-bd3b-229dbab0706d',{});}).then(function(){Plotly.animate('ffd408b2-0374-42e8-bd3b-229dbab0706d');})
         });</script>
 
 

@@ -1,4 +1,3 @@
-
 # Derivative rules lab
 
 In this lab, we will practice implementing the rules for derivatives with code.  This lab will review your understanding of the following:
@@ -194,7 +193,8 @@ So now that we can plot a nonlinear function with our `function_values_trace` an
 ```python
 from plotly import tools
 import plotly
-import plotly.plotly as py
+from chart_studio import plotly as py
+
 
 from graph import make_subplots
 

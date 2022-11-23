@@ -1,6 +1,6 @@
 import plotly
 from plotly.offline import iplot, init_notebook_mode
-from plotly import tools
+from plotly import subplots
 init_notebook_mode(connected=True)
 
 def trace(data, mode = 'markers', name="data"):
@@ -43,9 +43,9 @@ def build_layout(x_range = None, y_range = None, options = {}):
 
 def make_subplots(one_one_traces = [], one_two_traces = [], two_one_traces = [], two_two_traces = []):
     if two_one_traces or two_two_traces:
-        fig = tools.make_subplots(rows=2, cols=2)
+        fig = subplots.make_subplots(rows=2, cols=2)
     else:
-        fig = tools.make_subplots(rows=1, cols=2)
+        fig = subplots.make_subplots(rows=1, cols=2)
     for trace in one_one_traces:
         fig.append_trace(trace, 1, 1)
     for trace in one_two_traces:
